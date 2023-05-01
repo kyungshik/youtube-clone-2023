@@ -1,0 +1,19 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "Video Sharing Web Clone built using NodeJS, Express, Mongo and ES6 B-)",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kyungshik/youtube-clone-2023.git"
+  },
+  "keywords": [
+    "CloneCoding"
+  ],
+  "author": "Kyungshik Seong<kyungshikseong@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kyungshik/youtube-clone-2023/issues"
+  },
+  "homepage": "https://github.com/kyungshik/youtube-clone-2023#readme"
+}
