@@ -7,7 +7,7 @@
     "url": "git+https://github.com/kyungshik/youtube-clone-2023.git"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node index.js"
+    "dev": "nodemon --exec babel-node src/server.js"
   },
   "keywords": [
     "CloneCoding"
