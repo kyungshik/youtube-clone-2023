@@ -3,6 +3,23 @@
 ### It is clone coding that faithfully implements basic functions for backend, frontend, and distribution. Users can play videos, comment on them, search them, record and upload their own videos.
 ------------
 
+URL
+/ -> Home
+/join -> Join
+/login -> Login
+/search -> Search
+
+/users/edit -> Edit user
+/users/delete -> Delete user
+
+/videos/watch -> Watch Video
+/videos/edit -> Edit Video
+/videos/delete -> Delete Video
+/videos/comments -> Comment on a video
+/videos/comments/delete -> Delete A comment of  a Video
+
+------------
+
 1. What I learned with this clone coding.
   + Request/Response
   + MVC
@@ -52,3 +69,6 @@
     + Heroku
     + S3 Upload
     + Mongo Atlas
+
+
+
