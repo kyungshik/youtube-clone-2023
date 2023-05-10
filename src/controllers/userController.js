@@ -4,5 +4,6 @@ export const remove = (req, res) => res.send("Remove User");
 export const login = (req, res) => res.send("login")
 export const logout = (req,res) => res.send("log out");
 export const see = (req, res) => {
+    console.log(req.params);
     res.send("See User");
 }
