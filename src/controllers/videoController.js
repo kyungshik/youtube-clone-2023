@@ -1,65 +1,46 @@
-let videos = [
-    {
-        title: "Saul Good Man Review",
-        rating:5,
-        comments:2,
-        createdAt: "2 minutes ago",
-        views:1,
-        id:1,
-    },
-    {
-        title: "Working Mom Diary new trailer",
-        rating:4,
-        comments:3,
-        createdAt: "10 minutes ago",
-        views:12,
-        id:2,
-    },
-    {
-        title: "Breaking Bad trailer",
-        rating:5,
-        comments:7,
-        createdAt: "5 minutes ago",
-        views:18,
-        id:3,
-    },
-    {
-        title: "Wall-E 15min Review",
-        rating:5,
-        comments:22,
-        createdAt: "2 minutes ago",
-        views:59,
-        id:4,
-    },
-];
+import Video from "../models/Video";
+
+Video.find({},(error, videos) => {});
 
 //main home page
-export const trending = (req, res) => {
-    return res.render("home", {pageTitle: "Home", videos});
+export const home = async(req, res) => {
+    const videos = await Video.find({});
+    return res.render("home", { pageTitle: "Home", videos });
 };
 
 //(../videos/userName)
 export const watch = (req, res) =>{
     const { id } = req.params;
-    const video = videos[id-1];
-    return res.render("watch", {pageTitle:`Watching: ${video.title}`, video});
+    return res.render("watch", {pageTitle:`Watching`});
 };   
 
 //(../videos/userName/Edit)
 export const getEdit = (req, res) => {
     const { id } = req.params;
-    const video = videos[id-1];
-    return res.render("edit", {pageTitle:`Editing: ${video.title}`, video});
+    return res.render("edit", {pageTitle:`Editing`});
 };
 
+//Change video's title
 export const postEdit = (req, res) => {
-    
+    const { id } = req.params;
+    const { title } = req.body;
+    return res.redirect(`/videos/${id}`);
+};
+
+//
+export const getUpload = (req, res) => {
+    const { id } = req.params;
+    return res.render("upload", {pageTitle: `Posting:`});
+};
+
+export const postUpload = (req, res) => {
+    const { title } = req.body;
+    return res.redirect("/");
 };
 
 
 
 export const search = (req, res) => res.send("Search");
-export const upload = (req, res) => res.send("Upload");
 export const deleteVideo = (req, res) => {
     console.log(req.params);
     res.send("Delete Video");
