@@ -1,10 +1,8 @@
 import Video from "../models/Video";
 
-
 //main home page
 export const home = async(req, res) => {
     const videos = await Video.find({});
-    console.log(videos);
     return res.render("home", { pageTitle: "Home", videos });
 };
 
@@ -32,16 +30,14 @@ export const getEdit = async (req, res) => {
 export const postEdit = async (req, res) => {
     const { id } = req.params;
     const {title, description, hashtags} = req.body;
-    const video = await Video.exist({_id:id});
+    const video = await Video.exists({_id:id});
     if(!video){
         return res.render("404", {pageTitle:"Video not found."});
     }
     await Video.findByIdAndUpdate(id, {
         title, 
         description, 
-        hashtags:hashtags
-            .split(",")
-            .map((word) => (word.startsWith('#') ? word: `#${word}`)),
+        hashtags:Video.formatHashtags(hashtags),
     });
     return res.redirect(`/videos/${id}`);
 };
@@ -58,7 +54,7 @@ export const postUpload = async (req, res) => {
         await Video.create({
             title,
             description,
-            hashtags,
+            hashtags:Video.formatHashtags(hashtags),
         });
         return res.redirect("/");
     }catch(error){
