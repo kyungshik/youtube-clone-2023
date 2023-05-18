@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/kyungshik/youtube-clone-2023#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "express": "^4.18.2",
     "mongoose": "^5.12.3",
     "morgan": "^1.10.0",
