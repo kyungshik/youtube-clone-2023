@@ -134,14 +134,20 @@ export const finishGithubLogin = async (req, res) => {
         }
 };
 
-export const edit = (req, res) => res.send("Edit User");
-
 export const logout = (req,res) => {
     req.session.destroy();
     return res.redirect("/");
-}
+};
+
+export const getEdit = (req, res) => {
+    return res.render("edit-profile", {pageTitle:"Edit Profile", user: req.session.user});
+};
+
+export const postEdit = (req, res) => {
+    return res.render("edit-profile");
+};
 
 export const see = (req, res) => {
     console.log(req.params);
     res.send("See User");
-}
+};

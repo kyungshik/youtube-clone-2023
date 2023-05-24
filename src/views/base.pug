@@ -10,7 +10,9 @@ html(lang="ko")
                 ul
                     li 
                         a(href="/") Home
-                    if loggedIn    
+                    if loggedIn
+                        li  
+                            a(href="/users/edit") Edit Profile
                         li  
                             a(href="/users/logout") Log Out
                         li 
