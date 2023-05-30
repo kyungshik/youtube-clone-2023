@@ -16,6 +16,8 @@ html(lang="ko")
                         li 
                             a(href="/videos/upload") Upload Video
                         li  
+                            a(href=`/users/${loggedInUser._id}`) My Profile
+                        li  
                             a(href="/users/edit") Edit Profile
                         li  
                             a(href="/users/logout") Log Out
@@ -25,8 +27,7 @@ html(lang="ko")
                         li 
                             a(href="/login") login
                     li
-                        a(href="/search") Search
-                    
+                        a(href="/search") Search        
         main
             block content
     include partials/footer
