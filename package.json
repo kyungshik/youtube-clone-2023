@@ -7,7 +7,8 @@
     "url": "git+https://github.com/kyungshik/youtube-clone-2023.git"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node src/init.js"
+    "dev": "nodemon --exec babel-node src/init.js",
+    "assets": "webpack --config webpack.config.js"
   },
   "keywords": [
     "CloneCoding"
@@ -34,6 +35,7 @@
     "@babel/core": "^7.21.5",
     "@babel/node": "^7.20.7",
     "@babel/preset-env": "^7.21.5",
+    "babel-loader": "^9.1.2",
     "nodemon": "^2.0.22",
     "webpack": "^5.84.1",
     "webpack-cli": "^5.1.1"
