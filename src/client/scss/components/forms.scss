@@ -8,8 +8,7 @@ form {
       border: 1px solid rgba($color: #fff, $alpha: 0.1);
     }
   }
-  
-  input {
+  input:not([type="range"]){
     all: unset;
     padding: 15px 20px;
     border-radius: 5px;
