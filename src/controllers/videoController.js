@@ -1,5 +1,5 @@
 import Video from "../models/Video";
-import User from "../models/Users";
+import User from "../models/User";
 
 //main home page
 export const home = async (req, res) => {
@@ -29,8 +29,7 @@ export const getEdit = async (req, res) => {
   if (!video) {
     return res.status(404).render("404", { pageTitle: "Video not found." });
   }
-  console.log(video.owner, _id);
-  if (String(video.owner) !== String(req.session.user._id)) {
+  if (String(video.owner) !== String(_id)) {
     req.flash("error", "Please edit your video.");
     return res.status(403).redirect("/");
   }
@@ -48,7 +47,8 @@ export const postEdit = async (req, res) => {
   if (!video) {
     return res.render("404", { pageTitle: "Video not found." });
   }
-  if (String(video.owner) !== String(req.session.user._id)) {
+  if (String(video.owner) !== String(_id)) {
+    req.flash("error", "You are not the the owner of the video.");
     return res.status(403).redirect("/");
   }
   await Video.findByIdAndUpdate(id, {
@@ -132,4 +132,10 @@ export const registerView = async (req, res) => {
   video.meta.views = video.meta.views + 1;
   await video.save();
   return res.sendStatus(200);
+};
+
+export const createComment = (req, res) => {
+  console.log(req.params);
+  console.log(req.body);
+  return res.end();
 };
